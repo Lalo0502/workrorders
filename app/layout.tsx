@@ -9,7 +9,10 @@ export const metadata: Metadata = {
   title: "Work Orders Management",
   description: "Sistema de gestión de órdenes de trabajo",
   icons: {
-    icon: "/icon.svg",
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
   },
 };
 
