@@ -17,6 +17,10 @@
 /supabase/
 /migrations/
 
+# Ignore all contents inside docs/ but keep the folder
+docs/**
+!docs/.gitkeep
+
 # production
 /build
 
