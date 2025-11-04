@@ -8,6 +8,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Work Orders Management",
   description: "Sistema de gestión de órdenes de trabajo",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
