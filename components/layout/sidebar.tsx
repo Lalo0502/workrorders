@@ -11,7 +11,6 @@ import {
   Package,
   Wrench,
   ChevronLeft,
-  Bell,
   LogOut,
   User,
   Settings,
@@ -189,45 +188,8 @@ export function Sidebar({ className }: SidebarProps) {
         })}
       </nav>
 
-      {/* Bottom Section - Notifications & User */}
+      {/* Bottom Section - User */}
       <div className="border-t p-3 space-y-2">
-        {/* Notifications */}
-        {!collapsed && (
-          <Button
-            variant="ghost"
-            className="w-full justify-start gap-3 px-3"
-            size="sm"
-          >
-            <div className="relative">
-              <Bell className="h-5 w-5" />
-              <Badge
-                variant="destructive"
-                className="absolute -right-1 -top-1 h-4 w-4 p-0 flex items-center justify-center text-[10px]"
-              >
-                3
-              </Badge>
-            </div>
-            <span className="text-sm font-medium">Notifications</span>
-          </Button>
-        )}
-
-        {collapsed && (
-          <Button
-            variant="ghost"
-            size="icon"
-            className="relative w-full"
-            title="Notifications"
-          >
-            <Bell className="h-5 w-5" />
-            <Badge
-              variant="destructive"
-              className="absolute right-1 top-1 h-4 w-4 p-0 flex items-center justify-center text-[10px]"
-            >
-              3
-            </Badge>
-          </Button>
-        )}
-
         {/* User Profile */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
