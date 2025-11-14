@@ -16,7 +16,7 @@ interface PhotoUploadProps {
 export function PhotoUpload({
   value,
   onChange,
-  name = "Usuario",
+  name = "User",
 }: PhotoUploadProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [preview, setPreview] = useState<string | null>(value || null);
@@ -50,7 +50,7 @@ export function PhotoUpload({
 
       if (error) {
         console.error("Error uploading file:", error);
-        alert("Error al subir la imagen");
+        alert("Error uploading image");
         return null;
       }
 
@@ -62,7 +62,7 @@ export function PhotoUpload({
       return publicUrl;
     } catch (error) {
       console.error("Error uploading to Supabase:", error);
-      alert("Error al subir la imagen");
+      alert("Error uploading image");
       return null;
     } finally {
       setUploading(false);
@@ -76,13 +76,13 @@ export function PhotoUpload({
     if (file) {
       // Validar que sea una imagen
       if (!file.type.startsWith("image/")) {
-        alert("Por favor selecciona un archivo de imagen válido");
+        alert("Please select a valid image file");
         return;
       }
 
       // Validar tamaño (max 5MB)
       if (file.size > 5 * 1024 * 1024) {
-        alert("La imagen no debe superar los 5MB");
+        alert("Image must not exceed 5MB");
         return;
       }
 
@@ -118,12 +118,12 @@ export function PhotoUpload({
       video.autoplay = true;
 
       const captureBtn = document.createElement("button");
-      captureBtn.textContent = "Capturar Foto";
+      captureBtn.textContent = "Capture Photo";
       captureBtn.style.cssText =
         "margin-top:20px;padding:12px 24px;background:#fff;border:none;border-radius:6px;cursor:pointer;font-size:16px;";
 
       const cancelBtn = document.createElement("button");
-      cancelBtn.textContent = "Cancelar";
+      cancelBtn.textContent = "Cancel";
       cancelBtn.style.cssText =
         "margin-top:10px;padding:8px 16px;background:#666;color:#fff;border:none;border-radius:6px;cursor:pointer;";
 
@@ -175,7 +175,7 @@ export function PhotoUpload({
       };
     } catch (error) {
       console.error("Error accessing camera:", error);
-      alert("No se pudo acceder a la cámara. Por favor verifica los permisos.");
+      alert("Could not access camera. Please check permissions.");
     }
   };
 
@@ -201,7 +201,7 @@ export function PhotoUpload({
 
   return (
     <div className="space-y-4">
-      <Label>Fotografía</Label>
+      <Label>Photo</Label>
 
       <div className="flex items-center gap-4">
         {/* Avatar Preview */}
@@ -223,12 +223,12 @@ export function PhotoUpload({
               {uploading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Subiendo...
+                  Uploading...
                 </>
               ) : (
                 <>
                   <Upload className="mr-2 h-4 w-4" />
-                  Subir Foto
+                  Upload Photo
                 </>
               )}
             </Button>
@@ -241,7 +241,7 @@ export function PhotoUpload({
               disabled={uploading}
             >
               <Camera className="mr-2 h-4 w-4" />
-              Tomar Foto
+              Take Photo
             </Button>
           </div>
 
@@ -254,7 +254,7 @@ export function PhotoUpload({
               className="text-destructive"
             >
               <X className="mr-2 h-4 w-4" />
-              Eliminar Foto
+              Remove Photo
             </Button>
           )}
 
