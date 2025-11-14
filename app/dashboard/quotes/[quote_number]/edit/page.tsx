@@ -25,7 +25,7 @@ export default function EditQuotePage() {
     try {
       setLoading(true);
       const quotes = await getQuotes();
-      const found = quotes.find((q: any) => q.quote_number === quoteNumber);
+      const found: any = quotes.find((q: any) => q.quote_number === quoteNumber);
 
       if (!found) {
         toast.error("Quote not found");
